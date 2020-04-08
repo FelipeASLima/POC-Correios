@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "POC - Monditech/ParanaBanco";
+}
+
+<div class="container">
+
+    <div class="row" style="margin-bottom: 20px">
+
+        <div class="card col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="card-header"><h3>Buscar Endereço</h3></div>
+            <hr />
+            <div class="card-body form-group">
+                <div clas="row">
+                    <div class="row">
+                        <form id="pesquisaCEP">
+
+                            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" class="form-control cep" id="inp_busca_cep" placeholder="CEP" maxlength="9" required pattern="\d{5}-\d{3}" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                                <button id="btnPesquisa" class="btn btn-primary">Pesquisa</button>
+                                <input type="reset" id="btnLimpar" class="btn btn-default" name="b2" value="Limpar">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="card-header"><h3>Dados Encontrados</h3></div>
+            <hr />
+            <div class="card-body form-group">
+                <div clas="row">
+                    <form id="salvarEndereco">
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_cep" name="cep" class="form-control cep" placeholder="CEP" maxlength="9" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_endereco" name="endereco" class="form-control" placeholder="Endereco" maxlength="150" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_complemento" name="complemento" class="form-control" placeholder="Complemento" maxlength="150" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_bairo" name="bairro" class="form-control" placeholder="Bairro" maxlength="150" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_cidade" name="cidade" class="form-control" placeholder="Cidade" maxlength="150" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <input type="text" id="inp_uf" name="uf" class="form-control" placeholder="UF" maxlength="2" readonly />
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-5">
+                                <button id="savEndereco" class="btn btn-success">Salvar Endreço</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 20px">
+
+        <div class="card">
+            <div class="card-header"><h3>Endereços Cadastrados</h3></div>
+            <hr />
+            <div class="card-body form-group">
+
+                <div clas="row">
+
+                    <table id="tabelaEndereco2" class="display table table table-bordered table-hover table-striped">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" id="modalEditarEndereco" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="container-fluid">
+                    <form id="editarEndereco">
+                        <div class="modal-header">
+                            <button type="button" class="close closeModal" data-dismiss-modal="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h3>Editar Endereço</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div clas="row">
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_cep" name="cep" class="form-control cep" placeholder="CEP" maxlength="9" />
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_endereco" name="endereco" class="form-control" placeholder="Endereco" maxlength="150" />
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_complemento" name="complemento" class="form-control" placeholder="Complemento" maxlength="150" />
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_bairro" name="bairro" class="form-control" placeholder="Bairro" maxlength="150" />
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_cidade" name="cidade" class="form-control" placeholder="Cidade" maxlength="150" />
+                                </div>
+
+                                <div class="row" style="margin-bottom:10px">
+                                    <input type="text" id="edt_uf" name="uf" class="form-control" placeholder="UF" maxlength="2" />
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="row" style="float: right">
+                                        <button class="btn btn-success">Salvar Endreço</button>
+                                        <button type="button" class="btn btn-secondary closeModal" data-dismiss-modal="modal">Fechar</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
